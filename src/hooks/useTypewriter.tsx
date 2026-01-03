@@ -1,32 +1,41 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const useTypewriter = (
-  phrases: string[],
+export default function useTypewriter(
+  texts: string[],
   speed: number = 50,
-  delay: number = 2000,
-): string => {
+  delay: number = 5000,
+) {
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [displayText, setDisplayText] = useState<string>("");
-  const [phraseIndex, setPhraseIndex] = useState<number>(0);
+  const [index, setIndex] = useState<number>(0);
 
   useEffect(() => {
-    if (phrases.length === 0) return;
-    
-    const currentFullText = phrases[phraseIndex];
-    if (displayText.length < currentFullText.length) {
+    if (texts.length == 0) return;
+    const currentText = texts[index];
+
+    if (!isDeleting && displayText.length < currentText.length) {
       const timeout = setTimeout(() => {
-        setDisplayText(currentFullText.slice(0, displayText.length + 1));
+        setDisplayText(currentText.slice(0, displayText.length + 1));
       }, speed);
+
+      return () => clearTimeout(timeout);
+    } else if (displayText.length == currentText.length && !isDeleting) {
+      const timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, delay);
+
+      return () => clearTimeout(timeout);
+    } else if (isDeleting && displayText.length > 0) {
+      const timeout = setTimeout(() => {
+        setDisplayText(currentText.slice(0, displayText.length - 1));
+      }, speed);
+
       return () => clearTimeout(timeout);
     } else {
-      const pauseTimeout = setTimeout(() => {
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
-        setDisplayText("");
-      }, delay);
-      return () => clearTimeout(pauseTimeout);
+      setIndex((prev) => (prev + 1) % texts.length);
+      setIsDeleting(false);
     }
-  }, [displayText, phraseIndex, phrases, speed, delay]);
+  });
 
   return displayText;
-};
-
-export default useTypewriter;
+}
