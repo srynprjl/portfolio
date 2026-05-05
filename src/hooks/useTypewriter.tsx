@@ -8,7 +8,6 @@ export default function useTypewriter(
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
   const [displayText, setDisplayText] = useState<string>("");
   const [index, setIndex] = useState<number>(0);
-
   useEffect(() => {
     if (texts.length == 0) return;
     const currentText = texts[index];
