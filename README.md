@@ -23,7 +23,7 @@ The project is built with the following tools and frameworks:
 To run this project locally, follow these steps:
 
 1. Clone the repository to your local machine.
-2. Install the dependencies using your preferred package manager (e.g., npm, yarn, or bun).
+2. Install the dependencies using your preferred package manager (e.g., npm, pnpm, or bun).
 3. Start the development server with the dev command.
 
 ```bash
@@ -41,7 +41,7 @@ The application will be available at http://localhost:5173 by default.
 To create a production-ready build, run the following command:
 
 ```bash
-npm run build
+bun run build
 ```
 
 The optimized files will be generated in the dist directory.
