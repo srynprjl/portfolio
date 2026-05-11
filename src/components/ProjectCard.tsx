@@ -21,7 +21,7 @@ export default function ProjectCard({
 }: IconListProps) {
   return (
     <>
-      <div className="card  bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex flex-col gap-4">
+      <div className="card  bg-white/5 backdrop-blur-md border border-white/10 p-4 rounded-2xl flex flex-col gap-4 hover:scale-105 transition-transform shadow-md shadow-gray-400">
         <img
           src={img ? img : "/placeholder.png"}
           className="aspect-video w-auto rounded-2xl"

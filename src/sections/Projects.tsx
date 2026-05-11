@@ -1,4 +1,6 @@
 import { FaHtml5, FaJs, FaPython, FaReact } from "react-icons/fa6";
+
+
 import ProjectCard from "../components/ProjectCard";
 import { FaCss3 } from "react-icons/fa";
 import SpotifyClone from "/projects/spotify-clone.png";

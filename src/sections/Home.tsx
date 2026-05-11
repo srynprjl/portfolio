@@ -26,9 +26,9 @@ export default function Home() {
         className="py-1 flex flex-col items-center justify-center gap-8 min-h-screen"
       >
         <div className="flex items-center flex-col justify-center text-white gap-4">
-          <h2 className="text-center font-normal text-[clamp(24px,2.3vw,64px)]">
+          {/*<h2 className="text-center font-normal text-[clamp(24px,2.3vw,64px)]">
             Hello, I am
-          </h2>
+          </h2>*/}
           <h1 className="font-black text-[clamp(64px,6vw,200px)] text-center drop-shadow-[0_10px_100px] drop-shadow-white">
             Shreyan Parajuli
           </h1>
