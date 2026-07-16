@@ -43,7 +43,11 @@ export default function Home() {
         </div>
         <div className="flex gap-4 max-md:flex-col">
           <Button link="#about" name="About" Icon={FaUser} />
-          <Button link="#" name="Download CV" Icon={FaDownload} />
+          <Button
+            link="https://docs.google.com/document/d/1Jb637q288CWFD6_iniRnkQf-420ggUSP9SLovk1epTE/edit?usp=sharing"
+            name="Resume"
+            Icon={FaDownload}
+          />
           <Button link="#projects" name="Projects" Icon={GrProjects} />
         </div>
         <div className="flex gap-4 items-center justify-center text-white ">
